@@ -20,6 +20,7 @@ type JsonResult struct {
 	Data     interface{} `json:"data"`
 }
 
+//OwnerHandler 作者名称返回
 func OwnerHandler(w http.ResponseWriter, r *http.Request) {
 	res := &JsonResult{}
 
