@@ -20,6 +20,22 @@ type JsonResult struct {
 	Data     interface{} `json:"data"`
 }
 
+func OwnerHandler(w http.ResponseWriter, r *http.Request) {
+	res := &JsonResult{}
+
+	res.Code = 200
+	res.Data = "Jflower"
+
+	msg, err := json.Marshal(res)
+	if err != nil {
+		fmt.Fprint(w, "内部错误")
+	}
+
+	w.Header().Set("content-type", "application/json")
+	w.Write(msg)
+
+}
+
 // IndexHandler 计数器接口
 func IndexHandler(w http.ResponseWriter, r *http.Request) {
 	data, err := getIndex()
